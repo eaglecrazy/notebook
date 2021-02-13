@@ -67,9 +67,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function contacts(): BelongsToMany
+    public function contacts(): HasMany
     {
-//        return $this->belongsToMany(Contact::class, 'user_contacts', )
-        return $this->belongsToMany(Contact::class, 'user_contacts');
+        return $this->HasMany(Contact::class, 'user_id');
     }
 }

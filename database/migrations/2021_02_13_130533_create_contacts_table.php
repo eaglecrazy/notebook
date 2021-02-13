@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('name', 255);
             $table->string('phone', 63);
             $table->unsignedBigInteger('user_id');
+            $table->boolean('favorited')->default(false);
         });
 
         Schema::table('contacts', function (Blueprint $table) {

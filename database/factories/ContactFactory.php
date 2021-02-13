@@ -9,5 +9,6 @@ $factory->define(Contact::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'phone' => $faker->unique()->phoneNumber,
+        'favorited' => $faker->boolean(30),
     ];
 });

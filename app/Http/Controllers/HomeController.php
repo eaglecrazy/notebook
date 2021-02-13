@@ -29,15 +29,7 @@ class HomeController extends Controller
          * @var User $user ;
          */
         $user = Auth::user();
-//        $contacts = $user->contacts;
-
-//        $contacts = DB::table('user_contacts')->
-//            where('user_contacts.user_id', $user->id)->
-//            join('contacts', 'user_contacts.contact_id', 'contacts.id')
-//            ->select('contacts.name', 'contacts.phone', 'user_contacts.favorite_contact')
-//            ->get();
-
-        dd($contacts);
+        $contacts = $user->contacts;
         return view('home', compact('user', 'contacts'));
     }
 }
