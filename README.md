@@ -19,3 +19,6 @@ Test work for Courson.
 * должно быть api для crud контактов.
 
 Решение должно быть выложено на GitHub, Bitbucket.
+~~~~~~~~~~~~
+
+home.blade.php
