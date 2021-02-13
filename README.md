@@ -25,6 +25,10 @@ home.blade.php
 миграции
 CreateContactsTable
 CreateUsersTable
+
 сидеры
 DatabaseSeeder
 UsersTableSeeder
+
+фабрики
+ContactFactory 
