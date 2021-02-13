@@ -18,9 +18,11 @@ class CreateContactsTable extends Migration
             $table->timestamps();
             $table->string('name', 255);
             $table->string('phone', 63);
+            $table->unsignedBigInteger('user_id');
         });
+
         Schema::table('contacts', function (Blueprint $table) {
-            $table->unique(['name', 'phone']);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
         });
     }
 
