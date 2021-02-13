@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -48,12 +49,12 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Contact  $contact
      * @return Renderable
      */
-    public function show($id)
+    public function show(Contact $contact)
     {
-        dd($id);
+        return view('contacts.show', compact('contact'));
     }
 
     /**

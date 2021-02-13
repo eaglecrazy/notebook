@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
         <thead>
         <tr>
             <th class="w-25">Name</th>
@@ -14,8 +14,7 @@
         @foreach ($contacts as $contact)
             <tr>
                 <td>
-{{--                                        <a href="{{ route('cabinet.banners.show', $banner) }}" target="_blank">{{ $banner->name }}</a></td>--}}
-                    <a href="#">{{ $contact->name }}</a>
+                    <a href="{{ route('contacts.show', $contact) }}">{{ $contact->name }}</a>
                 </td>
                 <td>
                     {{ $contact->phone }}
