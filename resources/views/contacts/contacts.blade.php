@@ -21,13 +21,38 @@
                     {{ $contact->phone }}
                 </td>
                 <td>
-                    {{ $contact->favorite_contact ? 'Y' : '' }}
+                    @if($contact->favorited)
+                        <form method="POST" action="#" class="mr-1">
+                            @csrf
+                            @method('PUT')
+                            <button class="btn btn-sm btn-primary"><i class="far fa-minus-square"></i> Remove from favorites</button>
+                            {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
+                        </form>
+                    @else
+                        <form method="POST" action="#" class="mr-1">
+                            @csrf
+                            @method('PUT')
+                            <button class="btn btn-sm btn-success"><i class="far fa-plus-square"></i> Add from favorites</button>
+                            {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
+                        </form>
+                    @endif
                 </td>
                 <td>
-                    edit
+                    <form method="POST" action="#" class="mr-1">
+                        @csrf
+                        @method('PUT')
+                        <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit contact</button>
+                        {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
+                    </form>
                 </td>
                 <td>
-                    delete
+{{--                    <form method="POST" action="{{ route('cabinet.favorites.remove', $advert) }}" class="mr-1">--}}
+                    <form method="POST" action="#" class="mr-1">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Delete contact</button>
+{{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
+                    </form>
                 </td>
             </tr>
         @endforeach
