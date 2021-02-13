@@ -69,6 +69,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get user contacts
+     *
+     * @return HasMany
+     */
     public function contacts(): HasMany
     {
         return $this->HasMany(Contact::class, 'user_id')
@@ -76,6 +81,11 @@ class User extends Authenticatable
             ->orderBy('name');
     }
 
+    /**
+     * Get user favorite contacts
+     *
+     * @return HasMany
+     */
     public function favorites(): HasMany
     {
         return $this->HasMany(Contact::class, 'user_id')

@@ -39,3 +39,6 @@ ContactFactory
 модели
 User
 Contact 
+
+вьюхи
+контроллеры

@@ -2,37 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Index page
      *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return RedirectResponse
      */
     public function index()
     {
-        /**
-         * @var User $user ;
-         */
-        $user = Auth::user();
-        $contacts = $user->contacts;
-        $favorites = $user->favorites;
+        return redirect()->route('contacts.index');
+    }
 
-        return view('home', compact('user', 'contacts', 'favorites'));
+    /**
+     * Welcome
+     *
+     * @return Renderable|RedirectResponse
+     */
+    public function welcome()
+    {
+        if (Auth::user())
+            return redirect()->route('contacts.index');
+        return view('welcome');
     }
 }
 
