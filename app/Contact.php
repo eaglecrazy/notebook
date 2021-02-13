@@ -21,6 +21,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $user_id
+ * @property int $favorited
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereFavorited($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUserId($value)
  */
 class Contact extends Model
 {

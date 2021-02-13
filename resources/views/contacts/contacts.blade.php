@@ -2,8 +2,8 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Phone</th>
+            <th class="w-25">Name</th>
+            <th class="w-25">Phone</th>
             <th>Favorite</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -25,14 +25,14 @@
                         <form method="POST" action="#" class="mr-1">
                             @csrf
                             @method('PUT')
-                            <button class="btn btn-sm btn-primary"><i class="far fa-minus-square"></i> Remove from favorites</button>
+                            <button class="btn btn-sm btn-primary btn-favorite"><i class="far fa-minus-square"></i> Remove from favorites</button>
                             {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
                         </form>
                     @else
                         <form method="POST" action="#" class="mr-1">
                             @csrf
                             @method('PUT')
-                            <button class="btn btn-sm btn-success"><i class="far fa-plus-square"></i> Add from favorites</button>
+                            <button class="btn btn-sm btn-success btn-favorite"><i class="far fa-plus-square"></i> Add from favorites</button>
                             {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
                         </form>
                     @endif

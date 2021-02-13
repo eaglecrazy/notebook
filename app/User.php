@@ -35,6 +35,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contact[] $contacts
  * @property-read int|null $contacts_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Contact[] $favorites
+ * @property-read int|null $favorites_count
  */
 class User extends Authenticatable
 {
@@ -69,6 +71,15 @@ class User extends Authenticatable
 
     public function contacts(): HasMany
     {
-        return $this->HasMany(Contact::class, 'user_id');
+        return $this->HasMany(Contact::class, 'user_id')
+            ->where('favorited', false)
+            ->orderBy('name');
+    }
+
+    public function favorites(): HasMany
+    {
+        return $this->HasMany(Contact::class, 'user_id')
+            ->where('favorited', true)
+            ->orderBy('name');
     }
 }
