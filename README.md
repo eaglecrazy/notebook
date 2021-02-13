@@ -22,5 +22,9 @@ Test work for Courson.
 ~~~~~~~~~~~~
 
 home.blade.php
+миграции
 CreateContactsTable
 CreateUsersTable
+сидеры
+DatabaseSeeder
+UsersTableSeeder
