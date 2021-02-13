@@ -17092,3 +17092,8 @@ readers do not read off random characters that represent icons */
   min-width: 10rem;
 }
 
+.add-button {
+  margin: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
