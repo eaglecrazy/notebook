@@ -29,6 +29,12 @@ CreateUsersTable
 сидеры
 DatabaseSeeder
 UsersTableSeeder
+ContactsTableSeeder
 
 фабрики
-ContactFactory 
+UserFactort
+ContactFactory
+
+модели
+User
+Contact 
