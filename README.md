@@ -30,6 +30,7 @@ CreateUsersTable
 DatabaseSeeder
 UsersTableSeeder
 ContactsTableSeeder
+UserContactsTableSeeder
 
 фабрики
 UserFactort
