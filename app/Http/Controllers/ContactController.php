@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Http\Requests\ContactRequest;
 use App\Services\ContactService;
 use App\User;
 use Exception;
@@ -56,7 +57,7 @@ class ContactController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         dd('store');
     }
