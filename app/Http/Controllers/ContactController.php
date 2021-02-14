@@ -36,7 +36,7 @@ class ContactController extends Controller
         $user = Auth::user();
         $contacts = $user->contacts;
         $favorites = $user->favorites;
-        return view('home', compact('user', 'contacts', 'favorites'));
+        return view('contacts.index', compact('user', 'contacts', 'favorites'));
     }
 
     /**
@@ -97,12 +97,17 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return Response
+     * @param Contact $contact
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
-        dd('destroy');
+        try {
+            $this->contactService->destroy($contact);
+        } catch (Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+        return redirect()->back();
     }
 
     /**

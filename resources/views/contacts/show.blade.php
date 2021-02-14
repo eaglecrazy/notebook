@@ -7,8 +7,6 @@
                 <div class="card">
                     <div class="card-header h2">{{ $contact->name }}</div>
                     <div class="card-body">
-
-
                         <table class="table table-bordered table-striped">
                             <tbody>
                             <tr>

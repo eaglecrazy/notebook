@@ -10,7 +10,6 @@
         </tr>
         </thead>
         <tbody>
-
         @foreach ($contacts as $contact)
             <tr>
                 <td>

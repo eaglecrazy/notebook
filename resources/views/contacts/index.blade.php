@@ -7,13 +7,13 @@
             <div class="card mb-2">
                 <div class="card-header h2">Favorited contacts:</div>
                 <div class="card-body">
-                    @include('contacts.contacts', ['contacts' => $favorites])
+                    @include('contacts.partials._contacts', ['contacts' => $favorites])
                 </div>
             </div>
             <div class="card">
                 <div class="card-header h2">Contacts:</div>
                 <div class="card-body">
-                    @include('contacts.contacts', ['contacts' => $contacts])
+                    @include('contacts.partials._contacts', ['contacts' => $contacts])
                 </div>
             </div>
         </div>
