@@ -6,6 +6,7 @@ use App\Contact;
 use App\Services\ContactService;
 use App\User;
 use Exception;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -42,11 +43,11 @@ class ContactController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Renderable
      */
     public function create()
     {
-        dd('create');
+        return view('contacts.create');
     }
 
     /**
