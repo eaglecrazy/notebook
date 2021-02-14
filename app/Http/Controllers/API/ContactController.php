@@ -63,9 +63,9 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
+        $this->checkAccess($contact);
         return response()->json(['contact' => $contact], 200);
     }
-
 
     /**
      * Update the specified contact in storage.
@@ -76,6 +76,7 @@ class ContactController extends Controller
      */
     public function update(ContactRequest $request, Contact $contact)
     {
+        $this->checkAccess($contact);
         $data = $request->only(['name', 'phone', 'favorited']);
         try {
             $this->contactService->update($contact, $data);
@@ -93,6 +94,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
+        $this->checkAccess($contact);
         try {
             $this->contactService->destroy($contact);
         } catch (Exception $e) {
@@ -109,11 +111,24 @@ class ContactController extends Controller
      */
     public function toggleFavoritedState(Contact $contact)
     {
+        $this->checkAccess($contact);
         try {
             $this->contactService->toggleFavoritedState($contact);
         } catch (Exception $e) {
             abort(500);
         }
         return response()->json(['contact' => $contact], 200);
+    }
+
+    /**
+     * Check access to contact
+     *
+     * @param Contact $contact
+     */
+    private function checkAccess(Contact $contact): void
+    {
+        if (!Gate::allows('manage-own-contacts', $contact)) {
+            abort(403);
+        }
     }
 }

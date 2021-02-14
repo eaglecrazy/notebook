@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ContactController extends Controller
 {
@@ -71,6 +72,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
+        $this->checkAccess($contact);
         return view('contacts.show', compact('contact'));
     }
 
@@ -82,6 +84,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
+        $this->checkAccess($contact);
         return view('contacts.edit', compact('contact'));
     }
 
@@ -94,6 +97,7 @@ class ContactController extends Controller
      */
     public function update(ContactRequest $request, Contact $contact)
     {
+        $this->checkAccess($contact);
         $data = $request->only(['name', 'phone', 'favorited']);
         try {
             $this->contactService->update($contact, $data);
@@ -111,6 +115,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
+        $this->checkAccess($contact);
         try {
             $this->contactService->destroy($contact);
         } catch (Exception $e) {
@@ -127,11 +132,24 @@ class ContactController extends Controller
      */
     public function toggleFavoritedState(Contact $contact)
     {
+        $this->checkAccess($contact);
         try {
             $this->contactService->toggleFavoritedState($contact);
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
         return redirect()->back();
+    }
+
+    /**
+     * Check access to contact
+     *
+     * @param Contact $contact
+     */
+    private function checkAccess(Contact $contact): void
+    {
+        if (!Gate::allows('manage-own-contacts', $contact)) {
+            abort(403);
+        }
     }
 }
