@@ -14,7 +14,7 @@
                                 <input id="name"
                                        class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                        name="name"
-                                       value="{{ old('name') ?? 'qwerty' }}"
+                                       value="{{ old('name') }}"
                                        required
                                        maxlength="255">
                                 @if($errors->has('name'))
@@ -27,7 +27,7 @@
                                        type="tel"
                                        class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
                                        name="phone"
-                                       value="{{ old('phone') ?? '+7-111' }}"
+                                       value="{{ old('phone') }}"
                                        required
                                        maxlength="63">
                                 @if($errors->has('phone'))

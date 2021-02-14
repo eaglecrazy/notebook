@@ -104,7 +104,7 @@ class ContactController extends Controller
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
-        return view('contacts.show', compact('contact'));
+        return redirect()->route('contacts.index');
     }
 
     /**
@@ -121,7 +121,7 @@ class ContactController extends Controller
         } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
-        return redirect()->back();
+        return redirect()->route('contacts.index');
     }
 
     /**
