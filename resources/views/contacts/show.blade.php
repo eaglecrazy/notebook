@@ -30,7 +30,7 @@
                                     Updated
                                 </td>
                                 <td>
-                                    {{ $contact->created_at->format('Y.m.d - H:i') }}
+                                    {{ $contact->updated_at->format('Y.m.d - H:i') }}
                                 </td>
                             </tr>
                             </tbody>
