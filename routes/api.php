@@ -26,6 +26,8 @@ Route::group([
     'namespace' => 'API',
     'middleware' => 'auth:sanctum',
 ], function () {
+    Route::resource('contacts', 'ContactController')->except(['create', 'edit']);
+    Route::put('/contacts/{contact}/favorite', 'ContactController@toggleFavoritedState')->name('favorite');
     Route::get('/name', function (Request $request) {
         return response()->json(['name' => $request->user()->name]);
     });

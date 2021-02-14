@@ -38,7 +38,7 @@ class ContactService
      * Insert new contact to storage.
      *
      * @param array $data
-     * @return void
+     * @return Contact
      */
     public function store(array $data)
     {
@@ -48,7 +48,7 @@ class ContactService
         } else {
             $data['favorited'] = false;
         }
-        Contact::create($data);
+        return Contact::create($data);
     }
 
     /**
