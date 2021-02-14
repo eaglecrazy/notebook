@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Services\ContactService;
 use App\User;
+use Exception;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +15,17 @@ use Illuminate\View\View;
 
 class ContactController extends Controller
 {
+    private ContactService $contactService;
+
+    /**
+     * Constructor
+     * @param ContactService $cs
+     */
+    public function __construct(ContactService $cs)
+    {
+        $this->contactService = $cs;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +52,7 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -49,7 +63,7 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Contact  $contact
+     * @param Contact $contact
      * @return Renderable
      */
     public function show(Contact $contact)
@@ -60,7 +74,7 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function edit($id)
@@ -71,8 +85,8 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -83,7 +97,7 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function destroy($id)
@@ -94,11 +108,16 @@ class ContactController extends Controller
     /**
      * Toggle favorited state
      *
-     * @param  int  $id
-     * @return Response
+     * @param Contact $contact
+     * @return RedirectResponse
      */
-    public function toggleFavoritedState($id)
+    public function toggleFavoritedState(Contact $contact)
     {
-        dd('favorite');
+        try {
+            $this->contactService->toggleFavoritedState($contact);
+        } catch (Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+        return redirect()->back();
     }
 }

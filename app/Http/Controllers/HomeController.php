@@ -8,15 +8,15 @@ use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
-    /**
-     * Index page
-     *
-     * @return RedirectResponse
-     */
-    public function index()
-    {
-        return redirect()->route('contacts.index');
-    }
+//    /**
+//     * Index page
+//     *
+//     * @return RedirectResponse
+//     */
+//    public function index()
+//    {
+//        return redirect()->route('contacts.index');
+//    }
 
     /**
      * Welcome
