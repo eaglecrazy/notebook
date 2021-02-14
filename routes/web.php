@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@welcome')->name('welcome');
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('contacts', 'ContactController')->middleware(['auth']);
-//Route::resource('user', 'UserController', ['only' => ['edit', 'update', 'show', 'destroy']])
+Route::get('/', 'HomeController@welcome')->name('welcome');
+Route::group([
+    'middleware' => ['auth'],
+], function(){
+    Route::resource('contacts', 'ContactController');
+    Route::put('/contacts/{contact}/favorite', 'ContactController@toggleFavoritedState')->name('favorite');
+});

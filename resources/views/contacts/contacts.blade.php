@@ -21,36 +21,32 @@
                 </td>
                 <td>
                     @if($contact->favorited)
-                        <form method="POST" action="#" class="mr-1">
+                        <form method="POST" action="{{ route('favorite', $contact) }}" class="mr-1">
                             @csrf
                             @method('PUT')
-                            <button class="btn btn-sm btn-primary btn-favorite"><i class="far fa-minus-square"></i> Remove from favorites</button>
-                            {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
+                            <button class="btn btn-sm btn-primary btn-favorite"><i class="far fa-minus-square"></i>
+                                Remove from favorites
+                            </button>
                         </form>
                     @else
-                        <form method="POST" action="#" class="mr-1">
+                        <form method="POST" action="{{ route('favorite', $contact) }}" class="mr-1">
                             @csrf
                             @method('PUT')
-                            <button class="btn btn-sm btn-success btn-favorite"><i class="far fa-plus-square"></i> Add from favorites</button>
-                            {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
+                            <button class="btn btn-sm btn-success btn-favorite"><i class="far fa-plus-square"></i> Add
+                                from favorites
+                            </button>
                         </form>
                     @endif
                 </td>
                 <td>
-                    <form method="POST" action="#" class="mr-1">
-                        @csrf
-                        @method('PUT')
-                        <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit contact</button>
-                        {{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
-                    </form>
+                    <a class="btn btn-sm btn-info mr-3" href="{{ route('contacts.edit', $contact) }}"><i
+                            class="fa fa-edit"></i> Edit contact</a>
                 </td>
                 <td>
-{{--                    <form method="POST" action="{{ route('cabinet.favorites.remove', $advert) }}" class="mr-1">--}}
-                    <form method="POST" action="#" class="mr-1">
+                    <form method="POST" action="{{ route('contacts.destroy', $contact) }}" class="mr-3">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Delete contact</button>
-{{--                        <button class="btn btn-sm btn-danger"><span class="fa fa-remove"></span> Delete</button>--}}
                     </form>
                 </td>
             </tr>

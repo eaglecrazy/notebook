@@ -90,4 +90,15 @@ class ContactController extends Controller
     {
         dd('destroy');
     }
+
+    /**
+     * Toggle favorited state
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function toggleFavoritedState($id)
+    {
+        dd('favorite');
+    }
 }

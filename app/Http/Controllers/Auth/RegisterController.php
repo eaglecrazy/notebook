@@ -70,4 +70,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * Return the post register redirect path.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        return route('contacts.index');
+    }
 }

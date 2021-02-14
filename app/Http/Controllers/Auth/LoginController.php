@@ -37,4 +37,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Return the post register / login redirect path.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        return route('contacts.index');
+    }
 }
