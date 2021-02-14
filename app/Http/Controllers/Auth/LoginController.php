@@ -39,7 +39,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Return the post register / login redirect path.
+     * Return the post login redirect path.
      *
      * @return string
      */
