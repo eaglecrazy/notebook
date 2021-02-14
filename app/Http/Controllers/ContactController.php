@@ -54,12 +54,18 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Response
+     * @param ContactRequest $request
+     * @return RedirectResponse
      */
     public function store(ContactRequest $request)
     {
-        dd('store');
+        $data = $request->only(['name', 'phone', 'favorited']);
+        try {
+            $this->contactService->store($data);
+        } catch (Exception $e){
+            return back()->with('error', $e->getMessage());
+        }
+        return redirect()->route('contacts.index');
     }
 
     /**
@@ -87,7 +93,7 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
      * @return Response
      */

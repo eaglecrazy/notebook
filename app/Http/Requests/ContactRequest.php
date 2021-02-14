@@ -26,7 +26,7 @@ class ContactRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'phone' => ['required', 'string', 'min:3', 'max:63'],
-            'favorited' => ['in:on,off'],
+            'favorited' => ['in:,,on'],
         ];
     }
 }

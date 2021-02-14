@@ -28,5 +28,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Contact extends Model
 {
-    protected $fillable = ['name', 'phone', 'favorited'];
+    protected $fillable = ['name', 'phone', 'favorited', 'user_id'];
 }

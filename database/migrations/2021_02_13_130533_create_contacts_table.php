@@ -21,13 +21,8 @@ class CreateContactsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->boolean('favorited')->default(false);
         });
-
         Schema::table('contacts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
-        });
-
-        Schema::table('contacts', function (Blueprint $table) {
-            $table->unique(['name', 'phone', 'user_id']);
         });
     }
 
