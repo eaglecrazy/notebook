@@ -7,7 +7,6 @@ namespace App\Services;
 use App\Contact;
 use Auth;
 use Exception;
-use Illuminate\Http\Response;
 
 class ContactService
 {
@@ -44,11 +43,29 @@ class ContactService
     public function store(array $data)
     {
         $data['user_id'] = Auth::id();
-        if(isset($data['favorited']) && $data['favorited'] === 'on'){
+        if (isset($data['favorited']) && $data['favorited'] === 'on') {
             $data['favorited'] = true;
         } else {
             $data['favorited'] = false;
         }
         Contact::create($data);
+    }
+
+    /**
+     * Update the contact.
+     *
+     * @param Contact $contact
+     * @param array $data
+     * @return void
+     */
+    public function update(Contact $contact, array $data)
+    {
+        $data['user_id'] = Auth::id();
+        if (isset($data['favorited']) && $data['favorited'] === 'on') {
+            $data['favorited'] = true;
+        } else {
+            $data['favorited'] = false;
+        }
+        $contact->update($data);
     }
 }
