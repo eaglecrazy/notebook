@@ -49,7 +49,7 @@
                                     @csrf
                                     @method('PUT')
                                     <button class="btn btn-sm btn-success btn-favorite"><i
-                                            class="far fa-plus-square"></i> Add from favorites
+                                            class="far fa-plus-square"></i> Add to favorites
                                     </button>
                                 </form>
                             @endif
