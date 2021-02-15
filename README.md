@@ -19,6 +19,110 @@ Test work for Courson.
 * должно быть api для crud контактов.
 
 Решение должно быть выложено на GitHub, Bitbucket.
+
+# Документация по API
+
+**Регистрация**  
+* URL:  
+		http://notebook.eagle-projects.ru/api/sanctum/register  
+* Тип запроса:  
+		POST  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json		
+* Параметры:  
+		email  
+		password  
+		device_name  
+		name  
+	
+**Получение токена**  
+* URL  
+		http://notebook.eagle-projects.ru/api/sanctum/token  
+* Тип запроса:  
+		POST  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json		
+* Параметры:  
+		email 			: string  
+		password		: string  
+		device_name		: string  
+
+**Получение списка контактов**  
+* URL  
+		http://notebook.eagle-projects.ru/api/contacts  
+* Тип запроса:  
+		GET  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json	
+* Авторизация:  
+		Bearer Token  
+
+**Получение контакта**  
+* URL  
+		http://notebook.eagle-projects.ru/api/contacts/{contactId}  
+* Тип запроса:  
+		GET  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json	
+* Авторизация:  
+		Bearer Token  
+		
+**Создание контакта**  
+* URL  
+		http://notebook.eagle-projects.ru/api/contacts  
+* Тип запроса:  
+		POST  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json	
+* Авторизация:  
+		Bearer Token  
+* Параметры:  
+		name		: string  
+		phone		: string  
+		favorited	: 'on' или ''  
+		
+**Редактирование контакта**  
+* URL  
+ http://notebook.eagle-projects.ru/api/contacts/{contactId}  
+* Тип запроса:  
+		PUT  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json	
+* Авторизация:  
+		Bearer Token  
+* Параметры:  
+		name		: string  
+		phone		: string  
+		favorited	: 'on' или ''  		
+		
+**Изменение статуса "В избранном"**  
+* URL  
+	http://notebook.eagle-projects.ru/api/favorite/{contactId}  
+* Тип запроса:  
+		PUT  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json	
+* Авторизация:  
+		Bearer Token  
+
+**Удаление контакта**  
+* URL  
+		http://notebook.eagle-projects.ru/api/contacts/{contactId}  
+* Тип запроса:  
+		DELETE  
+* Заголовки:  
+		Content-Type	: application/json  
+		Accept 			: application/json	
+* Авторизация:  
+		Bearer Token  
+
 ~~~~~~~~~~~~
 
 home.blade.php
