@@ -121,31 +121,4 @@ Test work for Courson.
 		Content-Type	: application/json  
 		Accept 			: application/json	
 * Авторизация:  
-		Bearer Token  
-
-~~~~~~~~~~~~
-
-home.blade.php
-миграции
-CreateContactsTable
-CreateUsersTable
-
-сидеры
-DatabaseSeeder
-UsersTableSeeder
-ContactsTableSeeder
-UserContactsTableSeeder
-
-фабрики
-UserFactort
-ContactFactory
-
-модели
-User
-Contact 
-
-вьюхи
-контроллеры
-роуты
-
-ContactService
+		Bearer Token
