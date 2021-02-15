@@ -32,7 +32,7 @@
                             @csrf
                             @method('PUT')
                             <button class="btn btn-sm btn-success btn-favorite"><i class="far fa-plus-square"></i> Add
-                                from favorites
+                                to favorites
                             </button>
                         </form>
                     @endif
