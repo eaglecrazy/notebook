@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', 'HomeController@welcome')->name('welcome');
 Route::group([
     'middleware' => ['auth'],
-], function(){
+], function () {
     Route::resource('contacts', 'ContactController');
     Route::put('/contacts/{contact}/favorite', 'ContactController@toggleFavoritedState')->name('favorite');
 });
