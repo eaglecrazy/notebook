@@ -38,7 +38,9 @@
                             <div class="form-group">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="favorited" {{ old('favorited') || $contact->favorited ? ' checked' : '' }}> Favorited contact
+                                        <input type="checkbox"
+                                               name="favorited" {{ old('favorited') || $contact->favorited ? ' checked' : '' }}>
+                                        Favorited contact
                                     </label>
                                 </div>
                                 @if($errors->has('favorited'))

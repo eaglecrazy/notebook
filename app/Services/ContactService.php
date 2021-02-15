@@ -40,7 +40,7 @@ class ContactService
      * @param array $data
      * @return Contact
      */
-    public function store(array $data)
+    public function store(array $data): Contact
     {
         $data['user_id'] = Auth::id();
         if (isset($data['favorited']) && $data['favorited'] === 'on') {

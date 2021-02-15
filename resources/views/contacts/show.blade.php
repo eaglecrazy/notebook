@@ -53,11 +53,13 @@
                                     </button>
                                 </form>
                             @endif
-                            <a class="btn btn-sm btn-info mr-3" href="{{ route('contacts.edit', $contact) }}"><i class="fa fa-edit"></i> Edit contact</a>
+                            <a class="btn btn-sm btn-info mr-3" href="{{ route('contacts.edit', $contact) }}"><i
+                                    class="fa fa-edit"></i> Edit contact</a>
                             <form method="POST" action="{{ route('contacts.destroy', $contact) }}" class="mr-3">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Delete contact
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Delete contact</button>
+                                >
                             </form>
                         </div>
                     </div>

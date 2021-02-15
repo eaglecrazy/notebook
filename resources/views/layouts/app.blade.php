@@ -41,7 +41,8 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="btn btn-sm btn-success add-button" href="{{ route('contacts.create') }}"><i class="fa fa-address-card" aria-hidden="true"></i> Add new contact</a>
+                        <a class="btn btn-sm btn-success add-button" href="{{ route('contacts.create') }}"><i
+                                class="fa fa-address-card" aria-hidden="true"></i> Add new contact</a>
                     </li>
                     <!-- Authentication Links -->
                     @guest
